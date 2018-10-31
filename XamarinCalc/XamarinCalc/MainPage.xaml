@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinCalc"
+             x:Class="XamarinCalc.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0"
+                    Android="4, 0, 4, 0" />
+    </ContentPage.Padding>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseButtonStyle" TargetType="Button">
+                <Setter Property="BorderColor" Value="#E6E6E6"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="MinimumHeightRequest" Value="70"/>
+                <Setter Property="HeightRequest" Value="80"/>
+            </Style>
+            <Style x:Key="NumericButtonStyle"
+                BasedOn="{StaticResource BaseButtonStyle}"
+                TargetType="Button">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="Command" Value="{Binding DigitComamnd}"/>
+            </Style>
+            <Style x:Key="OperatorButtonStyle"
+                BasedOn="{StaticResource BaseButtonStyle}"
+                TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="Orange"/>
+                <Setter Property="Command" Value="{Binding OperatorCommand}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout BackgroundColor="#000000">
+        <!-- Place new controls here -->
+        <Grid RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="txtResult" 
+                   Grid.Row="0"
+                   Grid.ColumnSpan="4"
+                   MinimumHeightRequest="100"
+                   HeightRequest="100"
+                   TextColor="#FFFFFF" FontSize = "40"
+                   BackgroundColor="#000000"
+                   FontAttributes="Bold"
+                   Text="0"
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Center"
+                   VerticalOptions="StartAndExpand"/>
+            <Button x:Name="btn7"
+                        Text="7" 
+                        Grid.Row="1" Grid.Column="0"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btn8"
+                        Grid.Row="1" Grid.Column="1"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Text="8" Clicked="btn_Clicked" />
+            <Button x:Name="btn9"
+                        Text="9"
+                        Grid.Row="1" Grid.Column="2"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btnDiv"
+                        Text="÷"
+                        Grid.Row="1" Grid.Column="3"
+                        Style="{StaticResource OperatorButtonStyle}"
+                        Clicked="btnDiv_Clicked" />
+            <Button x:Name="btn4"
+                        Text="4"
+                        Grid.Row="2" Grid.Column="0"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btn5"
+                        Text="5"
+                        Grid.Row="2" Grid.Column="1"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btn6"
+                        Text="6"
+                        Grid.Row="2" Grid.Column="2"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btnMultiply"
+                        Text="×"
+                        Grid.Row="2" Grid.Column="3"
+                        Style="{StaticResource OperatorButtonStyle}"
+                        Clicked="btnMul_Clicked" />
+            <Button x:Name="btn1"
+                        Text="1"
+                        Grid.Row="3" Grid.Column="0"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btn2"
+                        Text="2"
+                        Grid.Row="3" Grid.Column="1"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btn3"
+                        Text="3"
+                        Grid.Row="3" Grid.Column="2"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btnMinus"
+                        Text="-"
+                        Grid.Row="3" Grid.Column="3"
+                        Style="{StaticResource OperatorButtonStyle}"
+                        Clicked="btnMinus_Clicked" />
+            <Button x:Name="btn0"
+                        Text="0"
+                        Grid.Row="4" Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btn_Clicked" />
+            <Button x:Name="btnPlus"
+                        Text="+"
+                        Grid.Row="4" Grid.Column="3"
+                        Style="{StaticResource OperatorButtonStyle}"
+                        Clicked="btnPlus_Clicked" />
+            <Button x:Name="btnClear"
+                        Text="C"
+                        Grid.Row="5" Grid.Column="0"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        Style="{StaticResource NumericButtonStyle}"
+                        Clicked="btnClear_Clicked" />
+            <Button x:Name="btnCalc"
+                        Text="="
+                        Grid.Row="5" Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Style="{StaticResource OperatorButtonStyle}"
+                        Clicked="btnCalc_Clicked" />
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
